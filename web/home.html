@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="lib/codemirror.js"></script>
+<link rel="stylesheet" href="lib/codemirror.css">
+<script src="mode/javascript/javascript.js"></script>
+<script src="templates.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+<script>
+	//concept: load profile, update profile, load profile again as a whole
+$(document).ready(function(){
+	//code here...
+	var code = $(".codemirror-textarea")[0];
+	var editor = CodeMirror.fromTextArea(code, {
+		lineNumbers : true,
+		mode: "go"
+	});
+	editor.setValue(goTmp);
+	$("#submit").click(function(e){
+		console.log(editor.getValue());
+	});
+	$("#language").change(function(e){
+		var mode = $("#language").val();
+		editor.setOption("mode", mode);
+		editor.setValue(modeMap[mode]);
+	});
+
+});
+</script>
+</head>
+<body>
+		<select id="language">
+			<optgroup>
+				<option>go</option>
+				<option>python</option>
+			</optgroup>
+		</select>
+		<textarea class="codemirror-textarea"></textarea>
+		<button type="submit" id="submit">Go</button>
+</body>
+</html>

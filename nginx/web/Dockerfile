@@ -1,0 +1,2 @@
+WORKDIR /var/web
+COPY . .

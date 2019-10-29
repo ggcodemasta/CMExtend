@@ -15,7 +15,7 @@ ENV PATH /usr/local/go/bin:$PATH
 RUN mkdir -p /go/src /go/bin && chmod -R 777 /go
 ENV GOROOT /usr/local/go
 ENV PATH /go/bin:$PATH
-WORKDIR /go/src/github.com/codemirror/server
+WORKDIR /go/src/github.com/codemirror
 
 COPY . .
 
